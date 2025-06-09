@@ -17,3 +17,9 @@ class TaskManager:
     def get_aufgaben(self):
         return self.aufgaben
     
+    def aufgabe_loeschen(self, index):
+        if 0 <= index < len(self.aufgaben):
+            del self.aufgaben[index]
+            return True
+        return False
+    
