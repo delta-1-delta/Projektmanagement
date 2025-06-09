@@ -53,10 +53,16 @@ class GanttFenster(QMainWindow):
         dauer = self.input_dauer.text()
     
         if name and start and dauer:
-            eintrag = F"{name} | Start: {start} | Dauer: {dauer} Tage"
+            eintrag = f"{name} | Start: {start} | Dauer: {dauer} Tage"
+            self.aufgaben.append((name, start, dauer)) 
+            self.liste_widget.addItem(eintrag)
+            self.ausgabe_label.setText("Aufgabe wurde hinzugefügt!")
+            self.input_name.clear()
+            self.input_start.clear()
+            self.input_dauer.clear()
+        else:
+            self.ausgabe_label.setText("Füllen Sie bitte alle Felder aus!")
             
-
-        self.ausgabe_label.setText(f"Aufgabe: {name}, Start: {start}, Dauer: {dauer} Tage")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
